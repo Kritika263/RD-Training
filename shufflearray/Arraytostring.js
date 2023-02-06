@@ -1,5 +1,5 @@
-function fun(arr) {
-    return arr.toString();
+function ArrayTostring(array) {
+    return array.toString();
 }
-let arr = ["h", "o", "l", "a"];
-console.log(`"${fun(arr)}"`);
+const inputarray = ["h", "o", "l", "a"];
+console.log(`"${ArrayTostring(inputarray)}"`);

@@ -1,12 +1,12 @@
 function shuffleArray(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        const j = Math.floor(Math.random() * arr.length);
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+    for (let index = 0; index < arr.length; index++) {
+        const result = Math.floor(Math.random() * arr.length);
+        [arr[index], arr[result]] = [arr[result], arr[index]];
     }
     console.log(arr);
 }
-var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-shuffleArray(myArray);
+const inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+shuffleArray(inputArray);
 
 
 

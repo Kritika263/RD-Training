@@ -1,8 +1,8 @@
-function OppositeNumber(x){
-    x=x*(-1);
-    console.log((x));
+function OppositeNumber(inputnumber){
+    inputnumber=inputnumber*(-1);
+    console.log((number));
 }
-    var x =5;
-    var a=-34.14;
-    OppositeNumber(x);
-    OppositeNumber(a);
+    var input1 =5;
+    var input2=-34.14;
+    OppositeNumber(input1);
+    OppositeNumber(input2);

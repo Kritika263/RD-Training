@@ -1,24 +1,31 @@
+ const numbers ={
+    Three : 3,
+    Seven : 7,
+    Forty : 40,
+    Twenty : 20
+ }
+
 class Fair {
-    constructor(x) {
-        this.x = x;
+    constructor(days) {
+        this.days = days;
     }
-    dailycharges(x) {
-        return x * 40;
+    dailycharges(days) {
+        return days * numbers.Forty;
     }
-    totalfair(x) {
-        if (x < 3) {
-            return this.dailycharges(x);
+    totalfair(days) {
+        if (days < numbers.Three) {
+            return this.dailycharges(days);
         }
-        else if (x >= 3 && x < 7) {
-            return this.dailycharges(x) - 20
+        else if (days >=numbers.Three  && days < numbers.Seven) {
+            return this.dailycharges(days) - numbers.Twenty
 
         }
-        else if (x >= 7) {
-            return this.dailycharges(x) - 40;
+        else if (days >= numbers.Seven) {
+            return this.dailycharges(days) - numbers.Forty;
         }
     }
 }
-let x;
+let days;
 const fair = new Fair()
-let ans = fair.totalfair(5);
+let ans = fair.totalfair(2);
 console.log(ans);
