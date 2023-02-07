@@ -1,9 +1,9 @@
- const numbers ={
-    Three : 3,
-    Seven : 7,
-    Forty : 40,
-    Twenty : 20
- }
+const numbers = {
+    Three: 3,
+    Seven: 7,
+    Forty: 40,
+    Twenty: 20
+}
 
 class Fair {
     constructor(days) {
@@ -16,7 +16,7 @@ class Fair {
         if (days < numbers.Three) {
             return this.dailycharges(days);
         }
-        else if (days >=numbers.Three  && days < numbers.Seven) {
+        else if (days >= numbers.Three && days < numbers.Seven) {
             return this.dailycharges(days) - numbers.Twenty
 
         }
@@ -25,7 +25,6 @@ class Fair {
         }
     }
 }
-let days;
 const fair = new Fair()
-let ans = fair.totalfair(2);
+const ans = fair.totalfair(2);
 console.log(ans);
