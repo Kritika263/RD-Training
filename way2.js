@@ -19,24 +19,20 @@ const data = [{
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam vitae sitreiciendis excepturimaiores quam rem dolorum ea nulla aut laborum placeat facere ullam odit qui est non deseruntdoloribus?'
 
 },
-
 ]
 
-for (let i = 0; i <= data.length; i++) {
+for (let index = 0; index <= data.length; index++) {
     let div = document.createElement("div");
     div.innerHTML = `<div class="elements-container">
 <div class="image-container"><img
-        src= ${data[i].url} /></div>
+        src= ${data[index].url} /></div>
 <div class="content-container">
-    <h2 class="content-title">${data[i].title}</h2>
-    <p class="subheading">${data[i].subheading}</p>
-    <p class="description">${data[i].description}</p>
+    <h2 class="content-title">${data[index].title}</h2>
+    <p class="subheading">${data[index].subheading}</p>
+    <p class="description">${data[index].description}</p>
     <button id="continue-btn">Continue Reading</button>
 </div>
 </div>
 <hr>`;
     main.appendChild(div);
 }
-
-
-
