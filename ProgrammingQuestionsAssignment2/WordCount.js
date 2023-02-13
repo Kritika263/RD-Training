@@ -1,4 +1,4 @@
-let inputstr = "Hi this is my java Script training";
+const inputstr = "Hi this is my java Script training";
 function wordCounter(inputstr) {
     return inputstr.split(" ").length;
 }
