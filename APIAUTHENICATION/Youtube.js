@@ -3,7 +3,6 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const API_KEY = 'AIzaSyDNRomxt46tmR6O42nQ3GPuZxXdo8mlAfc';
 const API_URL = 'https://www.googleapis.com/youtube/v3/search?key';
-// const loaderContainer=document.getElementById('containerLoader');
 const numbers = {
   million: 1000000,
   thousand: 1000
@@ -75,15 +74,15 @@ function convertDateFormat(currentDate) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(currentDate).toLocaleDateString("en-US", options);
 }
-function ViewsConverter(Views) {
-  if (Views >= numbers.million) {
-    return Views.slice(0, -6) + '.' + Views.slice(-6, -5) + 'M';
+function ViewsConverter(inputViews) {
+  if (inputViews >= numbers.million) {
+    return inputViews.slice(0, -6) + '.' + inputViews.slice(-6, -5) + 'M';
   }
-  if (Views >= numbers.thousand) {
-    return Views.slice(0, -3) + 'k';
+  if (inputViews >= numbers.thousand) {
+    return inputViews.slice(0, -3) + 'k';
   }
 
-  return Views;
+  return inputViews;
 }
 
 function GeneratePagination() {
