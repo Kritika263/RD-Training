@@ -37,14 +37,14 @@ describe('09-functions-n-closures-tasks', function() {
     it.optional('getPolynom should return the polynom with specified coefficients', () => {
         [
             {
-                polynom: tasks.getPolynom(2,3,5),
-                results: [ {x: 0, y: 5},  {x: 2, y: 19}, {x: 3, y: 32} ]
-            },{
-                polynom: tasks.getPolynom(1,-3),
-                results: [ {x:0, y: -3}, {x:2, y: -1}, {x:5, y:2} ]
-            },{
+                polynom: tasks.getPolynom(2, 3, 5),
+                results: [{ x: 0, y: 5 }, { x: 2, y: 19 }, { x: 3, y: 32 }]
+            }, {
+                polynom: tasks.getPolynom(1, -3),
+                results: [{ x: 0, y: -3 }, { x: 2, y: -1 }, { x: 5, y: 2 }]
+            }, {
                 polynom: tasks.getPolynom(8),
-                results: [ {x:0, y:8},  {x:2, y:8},  {x:5, y:8} ]
+                results: [{ x: 0, y: 8 }, { x: 2, y: 8 }, { x: 5, y: 8 }]
             }
         ].forEach(data => {
             data.results.forEach(test => {
@@ -54,7 +54,6 @@ describe('09-functions-n-closures-tasks', function() {
             });
         });
     });
-
 
     it.optional('memoize method should cache the result of function', () => {
         var numberOfCalls = 0;

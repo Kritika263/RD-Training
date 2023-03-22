@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /********************************************************************************************
  *                                                                                          *
@@ -7,7 +7,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield        *
  *                                                                                          *
  ********************************************************************************************/
-
 
 /**
  * Returns the lines sequence of "99 Bottles of Beer" song:
@@ -33,9 +32,19 @@
  *
  */
 function* get99BottlesOfBeer() {
-    throw new Error('Not implemented');
+  let count = 99;
+  while (count > 0) {
+    yield `${count} bottle${
+      count === 1 ? "" : "s"
+    } of beer on the wall, ${count} bottle${count === 1 ? "" : "s"} of beer.`;
+    yield `Take one down and pass it around, ${
+      count > 1 ? count - 1 : "no more"
+    } bottle${count - 1 === 1 ? "" : "s"} of beer on the wall.`;
+    count--;
+  }
+  yield "No more bottles of beer on the wall, no more bottles of beer.";
+  yield "Go to the store and buy some more, 99 bottles of beer on the wall.";
 }
-
 
 /**
  * Returns the Fibonacci sequence:
@@ -47,9 +56,17 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-    throw new Error('Not implemented');
+  yield 0;
+  yield 1;
+  let prevprev = 0;
+  let prev = 1;
+  while (true) {
+    let sum = prev + prevprev;
+    prevprev = prev;
+    prev = sum;
+    yield sum;
+  }
 }
-
 
 /**
  * Traverses a tree using the depth-first strategy
@@ -82,9 +99,22 @@ function* getFibonacciSequence() {
  *
  */
 function* depthTraversalTree(root) {
-    throw new Error('Not implemented');
-}
+  let stack = [];
+  let ans = [];
+  stack.push(root);
+  while (stack.length > 0) {
+    let node = stack.pop();
+    ans.push(node);
+    if (!node.children) continue;
+    for (let index = node.children.length - 1; index >= 0; index--) {
+      stack.push(node.children[index]);
+    }
+  }
 
+  for (let node of ans) {
+    yield node;
+  }
+}
 
 /**
  * Traverses a tree using the breadth-first strategy
@@ -108,9 +138,22 @@ function* depthTraversalTree(root) {
  *
  */
 function* breadthTraversalTree(root) {
-    throw new Error('Not implemented');
-}
+  let queue = [root];
+  let startIndex = 0;
+  let bfsArray = [];
 
+  while (startIndex < queue.length) {
+    const parent = queue[startIndex];
+    startIndex++;
+    bfsArray.push(parent);
+    if (!parent.hasOwnProperty("children")) continue;
+    for (let child of parent.children) {
+      queue.push(child);
+    }
+  }
+
+  for (let ele of bfsArray) yield ele;
+}
 
 /**
  * Merges two yield-style sorted sequences into the one sorted sequence.
@@ -126,14 +169,35 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    throw new Error('Not implemented');
+    const iterator1 = source1();
+    const iterator2 = source2();
+  
+    let item1 = iterator1.next().value;
+    let item2 = iterator2.next().value;
+  
+    while (item1 !== undefined || item2 !== undefined) {
+      if (item1 === undefined) {
+        yield item2;
+        item2 = iterator2.next().value;
+      } else if (item2 === undefined) {
+        yield item1;
+        item1 = iterator1.next().value;
+      } else {
+        if (item1 <= item2) {
+          yield item1;
+          item1 = iterator1.next().value;
+        } else {
+          yield item2;
+          item2 = iterator2.next().value;
+        }
+      }
+    }
 }
 
-
 module.exports = {
-    get99BottlesOfBeer: get99BottlesOfBeer,
-    getFibonacciSequence: getFibonacciSequence,
-    depthTraversalTree: depthTraversalTree,
-    breadthTraversalTree: breadthTraversalTree,
-    mergeSortedSequences: mergeSortedSequences
+  get99BottlesOfBeer: get99BottlesOfBeer,
+  getFibonacciSequence: getFibonacciSequence,
+  depthTraversalTree: depthTraversalTree,
+  breadthTraversalTree: breadthTraversalTree,
+  mergeSortedSequences: mergeSortedSequences,
 };
