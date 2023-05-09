@@ -1,0 +1,9 @@
+<div
+class="border d-flex flex-column px-4 py-2 mt-2"    
+[ngClass]="user.isDeleted ? 'border-warning' : 'border-success'">
+<h1>{{user.firstName}}</h1>
+<button
+class="btn align-self-end px-4"
+[ngClass]="buttonClass"
+(click)="handleUserButtonClick()">{{this.buttonText}}</button>
+</div>

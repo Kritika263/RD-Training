@@ -1,0 +1,24 @@
+<div class="container border p-2 mt-2" *ngIf="user">
+    <h3>{{ user.firstName }}</h3>
+    <p class="text-warning">
+      {{ userStatus }}
+      
+    </p>
+    <div class="row">
+      <p class="col-5">Loging Id</p>
+      <p class="col-7">{{ user.login }}</p>
+    </div>
+    <div class="row">
+      <p class="col-5">First Name</p>
+      <p class="col-7">{{ user.firstName }}</p>
+    </div>
+    <div class="row">
+      <p class="col-5">Last Name</p>
+      <p class="col-7">{{ user.lastName }}</p>
+    </div>
+    <div class="row">
+      <p class="col-5">Age</p>
+      <p class="col-7">{{ user.age }}</p>
+    </div>
+  </div>
+  
